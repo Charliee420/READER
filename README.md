@@ -1,123 +1,144 @@
-# Book Reader Application
+# Book Reader
 
-A modern desktop PDF reader application built with Electron.js, React, and PDF.js. Features include text highlighting, bookmarking, search functionality, and dark mode support.
+A professional desktop PDF reader application with advanced features for effective document management.
+
+[![Platform](https://img.shields.io/badge/Platform-Windows-blue)](https://github.com)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+---
+
+## Download
+
+**Direct Download:** [Book Reader.exe](file:///C:/Users/hdk99/Desktop/PRO1/READER/dist/Book%20Reader-win32-x64/Book%20Reader.exe)
+
+[![Download Now](https://img.shields.io/badge/Download-Now-brightgreen?style=for-the-badge)](file:///C:/Users/hdk99/Desktop/PRO1/READER/dist/Book%20Reader-win32-x64/Book%20Reader.exe)
+
+---
+
+## Overview
+
+Book Reader is a feature-rich desktop application designed for seamless PDF reading, annotation, and organization. Built with modern technologies, it delivers a smooth and responsive user experience with robust local data management.
 
 ## Features
 
-- 📖 **PDF Rendering** - Smooth PDF viewing with PDF.js
-- 🎨 **Text Highlighting** - Select and highlight text with multiple colors
-- 🔖 **Bookmarks** - Save important pages with optional notes
-- 🔍 **Search** - Find text across your document
-- 🌙 **Dark Mode** - Toggle between light and dark themes
-- ⚡ **Fast & Responsive** - Built with React for smooth performance
-- 💾 **Local Storage** - All data stored locally with SQLite
+| Feature | Description |
+|---------|-------------|
+| **PDF Rendering** | High-quality PDF viewing powered by PDF.js |
+| **Text Highlighting** | Multi-color text highlighting with persistent storage |
+| **Bookmarking** | Save and organize important pages with notes |
+| **Search** | Full-text search across documents |
+| **Dark Mode** | Eye-friendly dark and light theme toggle |
+| **Local Storage** | SQLite-based local database for all data |
 
 ## Tech Stack
 
-- **Electron.js** - Desktop application framework
-- **React.js** - Frontend UI library
-- **PDF.js** - PDF rendering engine
-- **SQLite** - Local database for highlights and bookmarks
-- **Node.js** - Backend runtime
+| Component | Technology |
+|-----------|------------|
+| Desktop Framework | Electron.js |
+| UI Library | React.js |
+| PDF Engine | PDF.js |
+| Database | SQLite |
+| Runtime | Node.js |
+
+## System Requirements
+
+- **Operating System:** Windows 10 or later
+- **RAM:** 4 GB minimum (8 GB recommended)
+- **Storage:** 200 MB available space
 
 ## Installation
 
-1. Clone the repository
-2. Install dependencies:
+### Option 1: Direct Download (Recommended)
+1. Click the download button above
+2. Save `Book Reader.exe` to your preferred location
+3. Double-click to launch the application
+
+### Option 2: Build from Source
 
 ```bash
+# Clone the repository
+git clone <repository-url>
+cd READER
+
+# Install dependencies
 npm install
-```
 
-## Development
-
-To run the application in development mode:
-
-```bash
+# Run in development mode
 npm run dev
-```
 
-This will:
-- Start the React development server on `http://localhost:3000`
-- Launch the Electron app automatically
-
-## Building
-
-To build the application for Windows:
-
-```bash
+# Build for Windows
 npm run build:win
 ```
 
-The executable will be created in the `dist` folder as `Reader.exe`.
+The executable will be generated in the `dist/Book Reader-win32-x64/` directory.
 
-To build for all platforms:
+## Usage Guide
 
-```bash
-npm run build
-```
+### Opening a PDF
+1. Click **Open PDF** in the toolbar
+2. Select your PDF file
+3. The document loads automatically
+
+### Highlighting Text
+1. Select a highlight color from the toolbar
+2. Click and drag over text in the PDF
+3. Highlights are saved automatically to the database
+
+### Managing Bookmarks
+1. Navigate to the desired page
+2. Click the **Bookmark** icon in the toolbar
+3. Add an optional note for reference
+4. Access all bookmarks from the sidebar
+
+### Search Functionality
+1. Enter search terms in the search bar
+2. Press **Enter** to execute
+3. Matches are highlighted on the current page
+
+### Theme Toggle
+Click the theme icon in the top-right corner to switch between light and dark modes.
 
 ## Project Structure
 
 ```
 READER/
-├── public/              # Public assets
-│   └── index.html       # HTML template
-├── src/                 # React source code
-│   ├── components/      # React components
+├── dist/                    # Built application
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
 │   │   ├── Toolbar.js
 │   │   ├── Sidebar.js
 │   │   ├── PDFViewer.js
 │   │   └── WelcomeScreen.js
-│   ├── App.js           # Main App component
+│   ├── App.js
 │   ├── App.css
-│   ├── index.js         # React entry point
-│   └── index.css        # Global styles
-├── main.js              # Electron main process
-├── preload.js           # Electron preload script
-├── package.json         # Dependencies and scripts
+│   ├── index.js
+│   └── index.css
+├── main.js                  # Electron main process
+├── preload.js               # Electron preload script
+├── package.json
 └── README.md
-
-## Usage
-
-### Opening a PDF
-
-1. Click the "Open PDF" button in the toolbar
-2. Select a PDF file from your computer
-3. The file will be copied to the app's storage and opened
-
-### Highlighting Text
-
-1. Select the highlight color from the color picker
-2. Select text in the PDF by clicking and dragging
-3. The highlight will be saved automatically
-4. View all highlights in the sidebar
-
-### Adding Bookmarks
-
-1. Navigate to the page you want to bookmark
-2. Click the bookmark button in the toolbar
-3. Optionally add a note
-4. View all bookmarks in the sidebar
-
-### Searching
-
-1. Enter text in the search box
-2. Press Enter to search
-3. Results will be highlighted on the current page
-
-### Dark Mode
-
-Click the moon/sun icon in the top-right corner to toggle dark mode.
+```
 
 ## Database Schema
 
-The application uses SQLite with three main tables:
+The application uses SQLite with the following tables:
 
-- **documents** - Stores document metadata
-- **highlights** - Stores text highlights with position and color
-- **bookmarks** - Stores page bookmarks with optional notes
+| Table | Purpose |
+|-------|---------|
+| `documents` | Document metadata storage |
+| `highlights` | Text highlight positions and colors |
+| `bookmarks` | Page bookmarks with optional notes |
+
+## Getting Help
+
+For issues, feature requests, or contributions, please contact the repository maintainer.
 
 ## License
 
 MIT License
+
+---
+
+© 2024 Book Reader Application
