@@ -9,9 +9,9 @@ A professional desktop PDF reader application with advanced features for effecti
 
 ## Download
 
-**Direct Download:** [Book Reader.exe](file:///C:/Users/hdk99/Desktop/PRO1/READER/dist/Book%20Reader-win32-x64/Book%20Reader.exe)
+**Direct Download:** [Book Reader.exe](file:///C:/Users/hdk99/Desktop/PRO1/READER/dist/win-unpacked/Book%20Reader.exe)
 
-[![Download Now](https://img.shields.io/badge/Download-Now-brightgreen?style=for-the-badge)](file:///C:/Users/hdk99/Desktop/PRO1/READER/dist/Book%20Reader-win32-x64/Book%20Reader.exe)
+[![Download Now](https://img.shields.io/badge/Download-Now-brightgreen?style=for-the-badge)](file:///C:/Users/hdk99/Desktop/PRO1/READER/dist/win-unpacked/Book%20Reader.exe)
 
 ---
 

@@ -249,32 +249,52 @@ function PDFViewer({
     };
 
     const handleTextSelection = () => {
-        const selection = window.getSelection();
-        const selectedText = selection.toString().trim();
+        setTimeout(() => {
+            const selection = window.getSelection();
+            const selectedText = selection.toString().trim();
 
-        if (selectedText.length > 0) {
-            const range = selection.getRangeAt(0);
-            const rect = range.getBoundingClientRect();
-            const containerRect = containerRef.current.getBoundingClientRect();
+            if (selectedText.length > 0) {
+                const range = selection.getRangeAt(0);
+                const canvas = canvasRef.current;
+                const canvasRect = canvas.getBoundingClientRect();
+                const textLayer = textLayerRef.current;
+                const textLayerRect = textLayer.getBoundingClientRect();
 
-            // Calculate position relative to PDF canvas
-            const position = {
-                left: rect.left - containerRect.left,
-                top: rect.top - containerRect.top,
-                width: rect.width,
-                height: rect.height
-            };
+                const startOffset = range.startOffset;
+                const endOffset = range.endOffset;
 
-            // Save highlight
-            onSaveHighlight({
-                text: selectedText,
-                position: position,
-                color: selectedColor
-            });
+                let minLeft = Infinity, minTop = Infinity, maxRight = -Infinity, maxBottom = -Infinity;
+                const clientRects = range.nativeClinicalRecord || [range.getBoundingClientRect()];
+                for (const rect of clientRects) {
+                    minLeft = Math.min(minLeft, rect.left);
+                    minTop = Math.min(minTop, rect.top);
+                    maxRight = Math.max(maxRight, rect.right);
+                    maxBottom = Math.max(maxBottom, rect.bottom);
+                }
 
-            // Clear selection
-            selection.removeAllRanges();
-        }
+                const scaleX = canvasRect.width / canvas.width;
+                const scaleY = canvasRect.height / canvas.height;
+
+                const position = {
+                    left: (minLeft - canvasRect.left) / scaleX,
+                    top: (minTop - canvasRect.top) / scaleY,
+                    width: (maxRight - minLeft) / scaleX,
+                    height: (maxBottom - minTop) / scaleY
+                };
+
+                console.log('Highlight position:', position);
+                console.log('Canvas size:', canvas.width, 'x', canvas.height);
+                console.log('Canvas rect:', canvasRect);
+
+                onSaveHighlight({
+                    text: selectedText,
+                    position: position,
+                    color: selectedColor
+                });
+
+                selection.removeAllRanges();
+            }
+        }, 10);
     };
 
     const handleWheel = (e) => {
